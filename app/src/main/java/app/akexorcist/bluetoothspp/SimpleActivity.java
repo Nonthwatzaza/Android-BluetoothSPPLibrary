@@ -96,7 +96,7 @@ public class SimpleActivity extends Activity {
         } else {
             if(!bt.isServiceAvailable()) { 
                 bt.setupService();
-                bt.startService(BluetoothState.DEVICE_ANDROID);
+                bt.startService(BluetoothState.DEVICE_OTHER);
                 setup();
             }
         }
@@ -106,9 +106,19 @@ public class SimpleActivity extends Activity {
 		Button btnSend = (Button)findViewById(R.id.btnSend);
 		btnSend.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
-        		bt.send("Text", true);
+        		bt.send("1", true);
         	}
         });
+		Toast.makeText(getApplicationContext()
+				, "NOW Runing in the 90's ", Toast.LENGTH_SHORT).show();
+		Button btnstop = (Button)findViewById(R.id.btnstop);
+		btnstop.setOnClickListener(new OnClickListener(){
+			public void onClick(View v){
+				bt.send("0", true);
+				Toast.makeText(getApplicationContext()
+						, "NOW STOP ", Toast.LENGTH_SHORT).show();
+			}
+		});
 	}
 	
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -118,7 +128,7 @@ public class SimpleActivity extends Activity {
 		} else if(requestCode == BluetoothState.REQUEST_ENABLE_BT) {
             if(resultCode == Activity.RESULT_OK) {
                 bt.setupService();
-                bt.startService(BluetoothState.DEVICE_ANDROID);
+                bt.startService(BluetoothState.DEVICE_OTHER);
                 setup();
             } else {
                 Toast.makeText(getApplicationContext()
@@ -129,3 +139,4 @@ public class SimpleActivity extends Activity {
         }
     }
 }
+//BYE BEJOY Bon voyage and F THE OCD
