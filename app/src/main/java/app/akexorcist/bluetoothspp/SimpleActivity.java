@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Akexorcist
+ * Copyright 2014 akexorcist
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -107,14 +107,18 @@ public class SimpleActivity extends Activity {
 		btnSend.setOnClickListener(new OnClickListener(){
         	public void onClick(View v){
         		bt.send("1", true);
+				Toast.makeText(getApplicationContext()
+						, "NOW Runing in the 90's ", Toast.LENGTH_SHORT).show();
         	}
         });
-		Toast.makeText(getApplicationContext()
-				, "NOW Runing in the 90's ", Toast.LENGTH_SHORT).show();
+
+
+
 		Button btnstop = (Button)findViewById(R.id.btnstop);
 		btnstop.setOnClickListener(new OnClickListener(){
 			public void onClick(View v){
 				bt.send("0", true);
+
 				Toast.makeText(getApplicationContext()
 						, "NOW STOP ", Toast.LENGTH_SHORT).show();
 			}
